@@ -1,24 +1,58 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false |
+| first_name_kanji   | string | null: false |
+| last_name_kanji    | string | null: false |
+| first_name_kana    | string | null: false |
+| last_name_kana     | string | null: false |
+| birthday           | date   | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :artists
+- has_many :comments
 
-* Configuration
+## artists テーブル
 
-* Database creation
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| artist_name        | string | null: false |
+| user               | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :arts
 
-* Services (job queues, cache servers, search engines, etc.)
+## arts テーブル
 
-* Deployment instructions
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| art_name           | string | null: false |
+| work_id            | integer| null: false |
+| story              | text   |             |
+| artist             | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :art
+- has_many :comments
+
+## comments テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| content            | text   | null: false |
+| art                | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :art
