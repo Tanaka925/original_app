@@ -38,6 +38,7 @@
 | artist_id          | integer| null: false |
 | work_id            | integer| null: false |
 | story              | text   |             |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
