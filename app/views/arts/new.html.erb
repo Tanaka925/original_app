@@ -27,13 +27,12 @@
         作品名
         <span class="indispensable">必須</span>
       </div>
-
-      <%= f.text_area :product_name, class:"arts-text", id:"art-name", placeholder:"作品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :art_name, class:"arts-text", id:"art-name", placeholder:"作品名（必須 40文字まで)", maxlength:"40" %>
       <div class="arts-explain">
         <div class="weight-bold-text">
           作品の物語
         </div>
-        <%= f.text_area :description, class:"arts-text", id:"art-info", placeholder:"作品の物語（必須 1,000文字まで）例）お散歩中に見たお花の絵を書いてくれました。形や色もしっかりと表現できていて驚きました。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :story, class:"arts-text", id:"art-info", placeholder:"作品の物語（必須 1,000文字まで）例）お散歩中に見たお花の絵を書いてくれました。形や色もしっかりと表現できていて驚きました。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
 
