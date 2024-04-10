@@ -1,0 +1,74 @@
+<div class="arts-sell-contents">
+  <header class="arts-sell-header">
+    <%= link_to image_tag('koten-logo-color.png' , size: '185x100'), "/" %>
+  </header>
+
+  <div class="arts-sell-main">
+    <h2 class="arts-sell-title">作品の情報を入力</h2>
+    <%= form_with(model: @art, local: true) do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        作品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"art-image" %>
+      </div>
+    </div>
+
+    <div class="new-arts">
+      <div class="weight-bold-text">
+        作品名
+        <span class="indispensable">必須</span>
+      </div>
+
+      <%= f.text_area :product_name, class:"arts-text", id:"art-name", placeholder:"作品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="arts-explain">
+        <div class="weight-bold-text">
+          作品の物語
+        </div>
+        <%= f.text_area :description, class:"arts-text", id:"art-info", placeholder:"作品の物語（必須 1,000文字まで）例）お散歩中に見たお花の絵を書いてくれました。形や色もしっかりと表現できていて驚きました。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+
+     <div class="arts-detail">
+      <div class="weight-bold-text">商品の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          作者
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:artist_id, Artist.all, :id, :name, {}, {class:"select-box", id:"art-category"}) %>
+        <div class="weight-bold-text">
+          制作日
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:work_id, Work.all, :id, :name, {}, {class:"select-box", id:"art-sales-status"}) %>
+      </div>
+    </div> 
+
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+
+  <footer class="arts-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">KOTEN利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('koten-logo-color.png' , size: '185x100'), "/" %>
+    <p class="inc">
+      ©︎KOTEN,Inc.
+    </p>
+  </footer>
+</div>
