@@ -1,5 +1,28 @@
 <%= render "shared/header" %>
-
+<div class='main'>
+  <%# 作品一覧 %>
+  <div class='art-contents'>
+    <h2 class='title'>ギャラリー</h2>
+    <div class="subtitle" >
+      新規投稿作品
+    </div>
+    <ul class='art-lists'>
+      <% @arts.each do |art| %>
+        <li class='list'>
+          <%= link_to arts_path(art.id) do %>
+          <div class='art-img-content'>
+            <%= image_tag art.image, class: "art-img" %>
+          </div>
+          <div class='art-name'>
+            <%= art.art_name %>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%# /作品一覧 %>
+</div>
 
 <%= link_to(new_art_path, class: 'purchase-btn') do %>
     <span class='purchase-btn-text'>新規投稿</span>
