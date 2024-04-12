@@ -35,11 +35,21 @@ class ArtsController < ApplicationController
     end
   end
 
+  def destroy
+    art = Art.find(params[:id])
+    unless current_user == art.user
+      redirect_to root_path
+      return
+    end
+    art.destroy
+    redirect_to root_path
+  end
+
   private
 
   def art_params
     params.require(:art).permit(:image, :art_name, :story, :artist_id, :work_id)
-                        .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id)
   end
 
   def set_item
