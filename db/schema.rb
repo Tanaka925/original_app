@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_09_015258) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_12_060851) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,6 +50,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_015258) do
     t.index ["user_id"], name: "index_arts_on_user_id"
   end
 
+  create_table "comments", charset: "utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "art_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["art_id"], name: "index_comments_on_art_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -71,4 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_015258) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "arts", "users"
+  add_foreign_key "comments", "arts"
+  add_foreign_key "comments", "users"
 end
