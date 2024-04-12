@@ -1,4 +1,6 @@
 class ArtsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update]
+
   def index
     @arts = Art.order(created_at: :desc)
   end
@@ -16,10 +18,17 @@ class ArtsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def art_params
     params.require(:art).permit(:image, :art_name, :story, :artist_id, :work_id)
                         .merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @art = Art.find(params[:id])
   end
 end

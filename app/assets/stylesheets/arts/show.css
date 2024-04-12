@@ -1,6 +1,6 @@
-/* 商品の概要 */
+/* 作品の概要 */
 
-.item-show {
+.art-show {
   background-color: #f8f8f8;
   width: 100vw;
   display: flex;
@@ -9,48 +9,48 @@
   padding: 5vh 0;
 }
 
-.item-box {
+.art-box {
   background-color: #FFF;
-  width: 70vw;
   min-width: 1200px;
-  padding: 10vh 15vw;
+  padding: 0 15vw 10vh 15vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.item-box>.name {
+.art-box>.name {
+  padding: 2vw;
   text-align: center;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
 }
 
-.item-box-img {
+.art-box-img {
+  margin: 2vw;
   height: 50vh;
-  width: 60vw;
   min-height: 500px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
 }
 
-.item-price-box {
+.art-price-box {
   margin: 25px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.item-price-box>.item-price {
+.art-price-box>.art-price {
   font-size: 4vh;
   font-weight: bold;
 }
 
-.item-price-box>.item-postage {
+.art-price-box>.art-postage {
   font-size: 16px;
 }
 
 
-.item-red-btn {
+.art-red-btn {
   text-align: center;
   background-color: #ea352d;
   font-size: 24px;
@@ -64,7 +64,7 @@
   font-size: 20px;
 }
 
-.item-destroy {
+.art-destroy {
   background-color: lightgray;
   text-align: center;
   font-size: 24px;
@@ -73,7 +73,7 @@
   padding: 2vh 10vw;
 }
 
-.item-explain-box {
+.art-explain-box {
   font-size: 18px;
   margin: 40px 0px;
   overflow-wrap: anywhere;
@@ -84,7 +84,7 @@
   width: 100%;
 }
 
-.detail-item {
+.detail-art {
   width: 20%;
   background-color: #eee;
   border: 1px solid #dedede;
@@ -108,9 +108,10 @@
 .favorite-btn {
   border-radius: 40px;
   width: 15vw;
+  height: 5vh;
   min-width: 200px;
-  color: rgb(249, 75, 0);
-  border: 2px solid #ffb340;
+  color: rgb(84, 83, 83);
+  border: 2px solid pink;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +140,7 @@
 }
 
 
-/* /商品の概要 */
+/* /作品の概要 */
 
 .comment-box {
   width: 40vw;
@@ -165,8 +166,8 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: lightcoral;
+  border: 1px solid lightcoral;
   color: #fff;
   width: 50%;
   min-width: 150px;
@@ -191,16 +192,16 @@
 
 }
 
-.change-item-btn {
+.change-art-btn {
   font-size: 30px;
   text-decoration: none;
-  color: #3CCACE;
+  color: lightcoral;
 }
 
-.another-item {
+.another-art {
   display: block;
   margin: 30px 0px 8px;
-  color: #3CCACE;
+  color: lightcoral;
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;

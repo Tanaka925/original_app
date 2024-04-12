@@ -1,0 +1,71 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="art-show">
+  <div class="art-box">
+    <h2 class="name">
+      〈　<%= @art.art_name %>　〉
+    </h2>
+    <div class="art-img-content">
+      <%= image_tag @art.image ,class:"art-box-img" %>
+    </div>
+
+
+     <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-art">作者</th>
+          <td class="detail-value"><%= @art.artist.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-art">作品名</th>
+          <td class="detail-value">『<%= @art.art_name %>』</td>
+        </tr>
+        <tr>
+          <th class="detail-art">作品の物語</th>
+          <td class="detail-value"><%= @art.story %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% if user_signed_in? %>
+      <% if current_user == @art.user %>
+        <%= link_to "編集", "#", method: :get, class: "art-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", "#", data: {turbo_method: :delete}, class:"art-destroy" %>
+      <% end %>
+    <% end %>
+    
+    <div class="option">
+      <div class="favorite-btn">
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+  </div>
+  <%# /商品の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不適切な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  <div class="links">
+    <a href="#" class="change-art-btn">
+      ＜ 前の商品
+    </a>
+    <a href="#" class="change-art-btn">
+      後ろの商品 ＞
+    </a>
+  </div>
+  <a href="#" class="another-art"><%= @art.artist.name %>の作品をもっと見る</a>
+</div>
+
+<%= render "shared/footer" %>
