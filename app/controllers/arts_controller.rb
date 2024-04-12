@@ -35,6 +35,16 @@ class ArtsController < ApplicationController
     end
   end
 
+  def destroy
+    art = Art.find(params[:id])
+    unless current_user == art.user
+      redirect_to root_path
+      return
+    end
+    art.destroy
+    redirect_to root_path
+  end
+
   private
 
   def art_params
