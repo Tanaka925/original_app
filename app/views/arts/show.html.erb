@@ -14,10 +14,6 @@
      <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-art">作者</th>
-          <td class="detail-value"><%= @art.artist.name %></td>
-        </tr>
-        <tr>
           <th class="detail-art">作品名</th>
           <td class="detail-value">『<%= @art.art_name %>』</td>
         </tr>
@@ -25,12 +21,24 @@
           <th class="detail-art">作品の物語</th>
           <td class="detail-value"><%= @art.story %></td>
         </tr>
+        <tr>
+          <th class="detail-art">作者</th>
+          <td class="detail-value"><%= @art.artist.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-art">制作日</th>
+          <td class="detail-value"><%= @art.work.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-art">投稿者</th>
+          <td class="detail-value"><%= @art.user.nickname %></td>
+        </tr>
       </tbody>
     </table>
 
     <% if user_signed_in? %>
       <% if current_user == @art.user %>
-        <%= link_to "編集", "#", method: :get, class: "art-red-btn" %>
+        <%= link_to "編集", edit_art_path(@art.id), method: :get, class: "art-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", "#", data: {turbo_method: :delete}, class:"art-destroy" %>
       <% end %>

@@ -21,6 +21,20 @@ class ArtsController < ApplicationController
   def show
   end
 
+  def edit
+    return unless current_user != @art.user
+
+    redirect_to root_path
+  end
+
+  def update
+    if @art.update(art_params)
+      redirect_to art_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def art_params
