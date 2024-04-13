@@ -55,20 +55,29 @@
   <%# コメント %>
   <div class="comment-box">
     <% if user_signed_in? %>
-      <%= form_with(model: @comment, local: true) do |form| %>
-        <%= form.text_area :content, placeholder: "コメントする", rows: "2", class: "comment-text" %>
+      <%= form_with(model: [@art, @comment], local: true) do |f| %>
+        <%= f.text_area :content, placeholder:"コメントする", rows:"2", class:"comment-text" %>
         <p class="comment-warn">
           相手のことを考え丁寧なコメントを心がけましょう。
           <br>
           不適切な言葉遣いなどは利用制限や退会処分となることがあります。
         </p>
-        <%= form.submit "POST", class: "comment-btn" %>
+        <%= f.submit "POST", class:"comment-btn" %>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
+    <div class="comments">
+      <b>＜コメント一覧＞</b>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "#" %>：</strong>
+          <%= comment.content %>
+        </p>
+      <% end %>
+    </div>
   </div>
-  <%# /コメント %>
+    <%# /コメント %>
 
   <div class="links">
     <a href="#" class="change-art-btn">

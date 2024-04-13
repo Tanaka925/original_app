@@ -19,6 +19,8 @@ class ArtsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @art.comments.includes(:user)
   end
 
   def edit
