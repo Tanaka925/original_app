@@ -15,20 +15,21 @@
 
 ### Association
 
-- has_many :art
+- has_many :arts
 - has_many :comments
+- has_many :artists
 
-<!-- ## artists テーブル
+## artists テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | artist_name        | string | null: false |
+| birthday           | date   | null: false |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :arts -->
 
 ## arts テーブル
 
