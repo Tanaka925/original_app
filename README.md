@@ -30,6 +30,19 @@
 ### Association
 
 - belongs_to :user
+- has_many :art_artists
+
+## art_artists テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| artist | references | null: false, foreign_key: true |
+| art    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :artist
+- belongs_to :art
 
 ## arts テーブル
 
@@ -39,12 +52,12 @@
 | work_id            | integer| null: false |
 | story              | text   |             |
 | user               | references | null: false, foreign_key: true |
-| artist             | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_many :comments
+- has_many :art_artists
 
 ## comments テーブル
 

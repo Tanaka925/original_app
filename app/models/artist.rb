@@ -3,6 +3,7 @@ class Artist < ApplicationRecord
   validates :birthday,            presence: true
 
   belongs_to :user
+  has_many :art_artists
 
   def age
     return if birthday.nil?

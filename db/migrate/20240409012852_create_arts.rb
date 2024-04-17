@@ -4,7 +4,6 @@ class CreateArts < ActiveRecord::Migration[7.0]
       t.string      :art_name,      null: false
       t.integer     :work_id,       null: false
       t.text        :story
-      t.references  :artist,        null: false, foreign_key: true
       t.references  :user,          null: false, foreign_key: true
       t.timestamps
     end

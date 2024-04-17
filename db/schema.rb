@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_16_215331) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_17_032001) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_16_215331) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "art_artists", charset: "utf8", force: :cascade do |t|
+    t.bigint "artist_id", null: false
+    t.bigint "art_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["art_id"], name: "index_art_artists_on_art_id"
+    t.index ["artist_id"], name: "index_art_artists_on_artist_id"
+  end
+
   create_table "artists", charset: "utf8", force: :cascade do |t|
     t.string "artist_name", null: false
     t.date "birthday", null: false
@@ -51,11 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_16_215331) do
     t.string "art_name", null: false
     t.integer "work_id", null: false
     t.text "story"
-    t.bigint "artist_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_arts_on_artist_id"
     t.index ["user_id"], name: "index_arts_on_user_id"
   end
 
@@ -89,7 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_16_215331) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "arts", "artists"
+  add_foreign_key "art_artists", "artists"
+  add_foreign_key "art_artists", "arts"
   add_foreign_key "arts", "users"
   add_foreign_key "comments", "arts"
   add_foreign_key "comments", "users"
