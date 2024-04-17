@@ -4,6 +4,7 @@ class Artist < ApplicationRecord
 
   belongs_to :user
   has_many :art_artists
+  has_many :arts
 
   def age
     return if birthday.nil?

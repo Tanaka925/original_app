@@ -1,5 +1,5 @@
 class ArtsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @arts = Art.order(created_at: :desc)
@@ -21,17 +21,16 @@ class ArtsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @art.comments.includes(:user)
+    @artist = Artist.find(@art.artist_id) # 修正: アートに関連づけられたアーティストIDを使用
   end
 
   def edit
-    return unless current_user != @art.user
-
-    redirect_to root_path
+    redirect_to root_path unless current_user == @art.user
   end
 
   def update
     if @art.update(art_params)
-      redirect_to art_path
+      redirect_to art_path(@art)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,10 +38,7 @@ class ArtsController < ApplicationController
 
   def destroy
     art = Art.find(params[:id])
-    unless current_user == art.user
-      redirect_to root_path
-      return
-    end
+    redirect_to root_path unless current_user == art.user
     art.destroy
     redirect_to root_path
   end
@@ -51,7 +47,7 @@ class ArtsController < ApplicationController
 
   def art_params
     params.require(:art).permit(:image, :art_name, :story, :artist_id, :work_id)
-          .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id) # `artist_ids`を`artist_id`に変更
   end
 
   def set_item

@@ -46,7 +46,11 @@ app/assets/stylesheets/arts/new.css %>
           作者
           <span class="indispensable">必須</span>
         </div>
-        <%= f.select :artist_id, current_user.artists.collect { |p| [p.artist_name, p.id] }, { include_blank: '選択してください' }, {class:"select-box", id:"art-category"} %>
+          <% if current_user.present? %>
+            <%= f.select :artist_id, current_user.artists.collect { |p| [p.artist_name, p.id] }, { include_blank: '選択してください' }, {class:"select-box", id:"art-category"} %>
+          <% else %>
+            ログインしてない
+          <% end %>
         <div class="weight-bold-text">
           制作日
           <span class="indispensable">必須</span>
