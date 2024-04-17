@@ -36,10 +36,10 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | art_name           | string | null: false |
-| artist_id          | integer| null: false |
 | work_id            | integer| null: false |
 | story              | text   |             |
 | user               | references | null: false, foreign_key: true |
+| artist             | references | null: false, foreign_key: true |
 
 ### Association
 

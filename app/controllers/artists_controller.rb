@@ -15,6 +15,15 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def show
+    if user_signed_in?
+      @artists = current_user.artists
+      @arts = Art.where(artist_id: @artists.ids)
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def artist_params

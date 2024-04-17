@@ -7,8 +7,8 @@ class Art < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :comments
+  belongs_to :artist
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :artist
   belongs_to :work
 end
