@@ -1,5 +1,5 @@
 class ArtsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @arts = Art.order(created_at: :desc)
@@ -19,19 +19,19 @@ class ArtsController < ApplicationController
   end
 
   def show
+    @user = User.find(@art.user_id)
+    @artist = Artist.find(@art.artist_id)
     @comment = Comment.new
     @comments = @art.comments.includes(:user)
   end
 
   def edit
-    return unless current_user != @art.user
-
-    redirect_to root_path
+    redirect_to root_path unless current_user == @art.user
   end
 
   def update
     if @art.update(art_params)
-      redirect_to art_path
+      redirect_to art_path(@art)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,10 +39,7 @@ class ArtsController < ApplicationController
 
   def destroy
     art = Art.find(params[:id])
-    unless current_user == art.user
-      redirect_to root_path
-      return
-    end
+    redirect_to root_path unless current_user == art.user
     art.destroy
     redirect_to root_path
   end

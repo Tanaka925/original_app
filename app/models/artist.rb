@@ -1,11 +1,15 @@
-class Artist < ActiveHash::Base
-  self.data = [
-    { 'id': 1, 'name': '---' },
-    { 'id': 2, 'name': 'いちか' },
-    { 'id': 3, 'name': 'にこ' },
-    { 'id': 4, 'name': 'さんたろう' }
-  ]
+class Artist < ApplicationRecord
+  validates :artist_name,         presence: true
+  validates :birthday,            presence: true
 
-  include ActiveHash::Associations
-  has_many :art
+  belongs_to :user
+  has_many :arts, dependent: :destroy
+
+  def age
+    return if birthday.nil?
+    now = Time.zone.now
+    age = now.year - birthday.year
+    age -= 1 if now.yday < birthday.yday # 誕生日がまだ来ていなければ1歳引く
+    age
+  end
 end

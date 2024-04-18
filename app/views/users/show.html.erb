@@ -1,0 +1,39 @@
+<%= render "shared/second-header" %>
+<div>
+  <div>
+    あなたのプロフィール<br>
+    <b><%= current_user.nickname %></b>
+  </div>
+
+<br>
+<div>
+  <div>作者一覧</div>
+  <% if @artists.present? %>
+    <% @artists.each do |artist| %>
+      <li>
+        <%= artist.artist_name %>
+        <p>年齢: <%= artist.age %> 歳</p>
+      </li>
+    <% end %>
+  <% else %>
+    <p>作者未登録</p>
+  <% end %>
+  <div>
+    <%= link_to "作者を追加", new_user_artist_path(current_user), method: :get %>
+  </div>
+</div>
+
+
+<br>
+  <ul>
+    その他
+    <li>
+      プロフィール変更
+    </li>
+    <li>
+      退会
+    </li>
+  </ul>
+</div>
+
+<%= render "shared/second-footer" %>

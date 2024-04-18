@@ -15,34 +15,38 @@
 
 ### Association
 
-- has_many :art
+- has_many :arts
 - has_many :comments
+- has_many :artists
 
-<!-- ## artists テーブル
+## artists テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | artist_name        | string | null: false |
+| birthday           | date   | null: false |
+| art                | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :arts -->
+- has_many :arts
 
 ## arts テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | art_name           | string | null: false |
-| artist_id          | integer| null: false |
 | work_id            | integer| null: false |
 | story              | text   |             |
+| artist             | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :artist
 - has_many :comments
 
 ## comments テーブル
