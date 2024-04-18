@@ -9,19 +9,15 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      redirect_to root_path, notice: 'アーティストプロフィールが作成されました。'
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def show
-    if user_signed_in?
-      @artists = current_user.artists
-      @arts = Art.where(artist_id: @artists.ids)
-    else
-      redirect_to root_path
-    end
+      @artist = Artist.find(params[:id])
+      @arts = @artist.arts
   end
 
   private

@@ -25,24 +25,13 @@
 | ------------------ | ------ | ----------- |
 | artist_name        | string | null: false |
 | birthday           | date   | null: false |
+| art                | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :art_artists
-
-## art_artists テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| artist | references | null: false, foreign_key: true |
-| art    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :artist
-- belongs_to :art
+- has_many :arts
 
 ## arts テーブル
 
@@ -51,13 +40,14 @@
 | art_name           | string | null: false |
 | work_id            | integer| null: false |
 | story              | text   |             |
+| artist             | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :artist
 - has_many :comments
-- has_many :art_artists
 
 ## comments テーブル
 

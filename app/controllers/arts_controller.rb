@@ -19,9 +19,10 @@ class ArtsController < ApplicationController
   end
 
   def show
+    @user = User.find(@art.user_id)
+    @artist = Artist.find(@art.artist_id)
     @comment = Comment.new
     @comments = @art.comments.includes(:user)
-    @artist = Artist.find(@art.artist_id) # 修正: アートに関連づけられたアーティストIDを使用
   end
 
   def edit
@@ -47,7 +48,7 @@ class ArtsController < ApplicationController
 
   def art_params
     params.require(:art).permit(:image, :art_name, :story, :artist_id, :work_id)
-          .merge(user_id: current_user.id) # `artist_ids`を`artist_id`に変更
+          .merge(user_id: current_user.id)
   end
 
   def set_item

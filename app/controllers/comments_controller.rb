@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to art_path(@comment.art_id), notice: 'コメントが正常に投稿されました。'
+      redirect_to art_path(@comment.art_id)
     else
-      redirect_to art_path(@comment.art_id), alert: 'コメントの投稿に失敗しました。'
+      redirect_to art_path(@comment.art_id)
     end
   end
 

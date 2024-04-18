@@ -2,9 +2,9 @@
 <div class='main'>
   <%# 作品一覧 %>
   <div class='art-contents'>
-    <h2 class='title'>個展へようこそ</h2>
+    <h2 class='title'><%= @artist.artist_name %>の個展へようこそ</h2>
     <div class="subtitle" >
-      <%# <% @artists.artist_id %>の作品 %>
+       <%= @artist.artist_name %>の作品
     </div>
     <ul class='art-lists'>
       <% @arts.each do |art| %>

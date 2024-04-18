@@ -3,8 +3,7 @@ class Artist < ApplicationRecord
   validates :birthday,            presence: true
 
   belongs_to :user
-  has_many :art_artists
-  has_many :arts
+  has_many :arts, dependent: :destroy
 
   def age
     return if birthday.nil?
