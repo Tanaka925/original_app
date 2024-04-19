@@ -6,8 +6,8 @@ class Art < ApplicationRecord
   has_one_attached :image
 
   belongs_to :user
+  belongs_to :artist
   has_many :comments, dependent: :destroy
-  has_many :artists
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :work

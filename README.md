@@ -25,7 +25,6 @@
 | ------------------ | ------ | ----------- |
 | artist_name        | string | null: false |
 | birthday           | date   | null: false |
-| art                | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
