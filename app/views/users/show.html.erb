@@ -33,7 +33,13 @@
             <td class="detail-value">
                 <%= link_to artist.artist_name, user_artist_path(user_id: current_user.id, id: artist.id) %>
                 <div class='artistdate'>
-                <%= artist.age %> 歳
+                  <% birthday = artist.birthday %>
+                  <% today = Date.today %>
+                  <% years = today.year - birthday.year %>
+                  <% months = today.month - birthday.month %>
+                  <% months += 12 if months.negative? %>
+                  <% years -= 1 if today.month < birthday.month or (today.month == birthday.month and today.day < birthday.day) %>
+                  <%= "#{years}歳#{months}ヶ月" %>
                 </div>
             </td>
           </tr>
