@@ -55,6 +55,7 @@ a {
 .art-name {
   color: black;
   font-size: 2vh;
+  padding-top: 5px;
 }
 
 /* //作品一覧 */
