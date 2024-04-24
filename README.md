@@ -37,8 +37,8 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | art_name           | string | null: false |
-| work_id            | integer| null: false |
 | story              | text   |             |
+| workday            | date   | null: false |
 | artist             | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
