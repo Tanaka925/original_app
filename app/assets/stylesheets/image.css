@@ -1,0 +1,14 @@
+.preview-image {
+  height: 100px;
+  width: 100px;
+  /* 縦横比を保ったまま、画像を縦横100pxのサイズに収めるプロパティです */
+  object-fit: contain;
+}
+
+.art-box-img {
+  filter: drop-shadow(5px 8px 3px #856845);
+}
+
+.art-img {
+  filter: drop-shadow(5px 8px 3px #856845);
+}

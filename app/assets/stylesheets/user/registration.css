@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-/* form-wrapは商品購入画面でも使用しています */
+/* form-wrapはマイページでも使用しています */
 .form-wrap {
   width: 50%;
   background-color: white;
@@ -157,4 +157,11 @@
   color: #0099e8;
   text-align: right;
   cursor: pointer;
+}
+
+.sub_sign-up {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  font-size: 15px;
 }

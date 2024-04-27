@@ -23,11 +23,12 @@
         </tr>
         <tr>
           <th class="detail-art">作者</th>
-          <td class="detail-value"><%= @artist.artist_name %></td>
+          <td class="detail-value"><%= link_to @artist.artist_name, user_artist_path(user_id: @user.id, id: @artist.id) %>
+</td>
         </tr>
         <tr>
           <th class="detail-art">制作日</th>
-          <td class="detail-value"><%= @art.work.name %></td>
+          <td class="detail-value"><%= @art.workday %></td>
         </tr>
         <tr>
           <th class="detail-art">投稿者</th>
@@ -79,14 +80,14 @@
   </div>
     <%# /コメント %>
 
-  <div class="links">
+  <%# <div class="links">
     <a href="#" class="change-art-btn">
       ＜ 前の作品
     </a>
     <a href="#" class="change-art-btn">
       後ろの作品 ＞
     </a>
-  </div>
+  </div> %>
   <%= link_to @artist.artist_name + " の作品をもっと見る", user_artist_path(user_id: @user.id, id: @artist.id), class: "another-art" %>
 </div>
 

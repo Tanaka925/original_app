@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @user = User.find(params[:user_id])
     @artist = Artist.new
@@ -16,8 +16,8 @@ class ArtistsController < ApplicationController
   end
 
   def show
-      @artist = Artist.find(params[:id])
-      @arts = @artist.arts
+    @artist = Artist.find(params[:id])
+    @arts = @artist.arts
   end
 
   private

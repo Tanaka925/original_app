@@ -5,7 +5,7 @@
 
   <div class="arts-sell-main">
     <h2 class="arts-sell-title">作品の情報を入力</h2>
-    <%= form_with(model: @art, local: true) do |f| %>
+    <%= form_with(model: @art, id: 'new-art', local: true) do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -19,6 +19,7 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"art-image" %>
+        <div id="previews", class="preview-image"></div>
       </div>
     </div>
 
@@ -52,7 +53,7 @@
           制作日
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:work_id, Work.all, :id, :name, {}, {class:"select-box", id:"art-sales-status"}) %>
+        <%= f.date_field :workday, class:"select-box", id:"art-sales-status" %>
       </div>
     </div> 
 

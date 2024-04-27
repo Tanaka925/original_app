@@ -1,39 +1,58 @@
-<%= render "shared/second-header" %>
-<div>
-  <div>
-    あなたのプロフィール<br>
-    <b><%= current_user.nickname %></b>
-  </div>
+<%# cssは"devise>registrations>new"に使用されているものを併用した %>
 
-<br>
-<div>
-  <div>作者一覧</div>
-  <% if @artists.present? %>
-    <% @artists.each do |artist| %>
-      <li>
-        <%= artist.artist_name %>
-        <p>年齢: <%= artist.age %> 歳</p>
-      </li>
-    <% end %>
-  <% else %>
-    <p>作者未登録</p>
-  <% end %>
-  <div>
-    <%= link_to "作者を追加", new_user_artist_path(current_user), method: :get %>
+<%= render "shared/second-header"%>
+<div class='registration-main'>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>マイページ</h1>
+    </div>
+    
+    <div class="form-group">
+
+      <div class='form-text-wrap'>
+        <label class="home-text">名前</label>
+      </div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <td class="detail-value">
+              <%= @user.nickname %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class='form-text-wrap'>
+        <label class="home-text">お子さま一覧</label>
+      </div>
+      <table class="detail-table">
+        <tbody>
+          <% @artists.each do |artist| %>
+          <tr>
+            <td class="detail-value">
+                <%= link_to artist.artist_name, user_artist_path(user_id: current_user.id, id: artist.id) %>
+                <div class='artistdate'>
+                  <% birthday = artist.birthday %>
+                  <% today = Date.today %>
+                  <% years = today.year - birthday.year %>
+                  <% months = today.month - birthday.month %>
+                  <% months += 12 if months.negative? %>
+                  <% years -= 1 if today.month < birthday.month or (today.month == birthday.month and today.day < birthday.day) %>
+                  <%= "#{years}歳#{months}ヶ月" %>
+                </div>
+            </td>
+          </tr>
+          <% end %>
+          <tr>
+            <td class="detail-value">
+              <%= link_to "+作者を追加", new_user_artist_path(current_user), method: :get %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-
-<br>
-  <ul>
-    その他
-    <li>
-      プロフィール変更
-    </li>
-    <li>
-      退会
-    </li>
-  </ul>
-</div>
-
-<%= render "shared/second-footer" %>
+<%= render "shared/second-footer"%> 

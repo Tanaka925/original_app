@@ -1,17 +1,19 @@
-require 'date'
+# //カレンダー入力にしたため、下記をコメントアウト//
 
-class Work < ActiveHash::Base
-  start_date = Date.new(2010, 1)
-  end_date = Date.new(2025, 12)
+# require 'date'
 
-  data = (start_date..end_date).map do |date|
-    next unless date.day == 1 # 月の最初の日だけを対象にする
+# class Work < ActiveHash::Base
+#   start_date = Date.new(2010, 1)
+#   end_date = Date.new(2025, 12)
 
-    { id: date.strftime('%Y%m').to_i, name: date.strftime('%Y年%m月') }
-  end.compact # nil を削除
+#   data = (start_date..end_date).map do |date|
+#     next unless date.day == 1 # 月の最初の日だけを対象にする
 
-  self.data = data
+#     { id: date.strftime('%Y%m').to_i, name: date.strftime('%Y年%m月') }
+#   end.compact # nil を削除
 
-  include ActiveHash::Associations
-  has_many :art
-end
+#   self.data = data
+
+#   include ActiveHash::Associations
+#   has_many :art
+# end
