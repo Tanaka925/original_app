@@ -50,7 +50,7 @@ app/assets/stylesheets/arts/new.css %>
           <% if current_user.present? %>
             <%= f.select :artist_id, current_user.artists.collect { |p| [p.artist_name, p.id] }, { include_blank: '選択してください' }, {class:"select-box", id:"art-category"} %>
           <% else %>
-            ログインしてない
+            ログインしてください
           <% end %>
         <div class="weight-bold-text">
           制作日
