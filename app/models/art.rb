@@ -9,6 +9,4 @@ class Art < ApplicationRecord
   belongs_to :artist
   has_many :comments, dependent: :destroy
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to :work
 end
