@@ -3,7 +3,7 @@ class CreateArts < ActiveRecord::Migration[7.0]
     create_table :arts do |t|
       t.string      :art_name,      null: false
       t.text        :story
-      t.integer     :work_id,       null: false
+      t.date        :workday,       null: false
       t.references  :artist,        null: false, foreign_key: true
       t.references  :user,          null: false, foreign_key: true
       t.timestamps
