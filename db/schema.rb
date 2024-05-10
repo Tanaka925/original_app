@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_17_032001) do
   create_table "arts", charset: "utf8", force: :cascade do |t|
     t.string "art_name", null: false
     t.text "story"
-    t.date "workday", null: false
+    t.date "work_day", null: false
     t.bigint "artist_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

@@ -47,7 +47,7 @@ class ArtsController < ApplicationController
   private
 
   def art_params
-    params.require(:art).permit(:image, :art_name, :story, :artist_id, :workday)
+    params.require(:art).permit(:image, :art_name, :story, :artist_id, :work_day)
           .merge(user_id: current_user.id)
   end
 

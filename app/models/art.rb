@@ -1,7 +1,7 @@
 class Art < ApplicationRecord
   validates :image,                 presence: true
   validates :art_name,              presence: true
-  validates :workday,               presence: true
+  validates :work_day,              presence: true
 
   has_one_attached :image
 
