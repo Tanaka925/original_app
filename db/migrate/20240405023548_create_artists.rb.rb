@@ -1,6 +1,6 @@
 class CreateArtists < ActiveRecord::Migration[7.0]
   def change
-    create_table :artists do |t|
+    create_table :artists, if_not_exists: true do |t|
       t.string      :artist_name,     null: false
       t.date        :birthday,        null: false
       t.references  :user,            null: false, foreign_key: true
