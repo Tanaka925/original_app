@@ -1,62 +1,105 @@
-# テーブル設計
+# アプリケーション名
 
-## users テーブル
+KOTEN
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false |
-| first_name_kanji   | string | null: false |
-| last_name_kanji    | string | null: false |
-| first_name_kana    | string | null: false |
-| last_name_kana     | string | null: false |
-| birthday           | date   | null: false |
+# アプリケーション概要
 
-### Association
+我が子の作品を記録しながら、世界に発信することができる。
 
-- has_many :arts
-- has_many :comments
-- has_many :artists
+# URL
 
-## artists テーブル
+[https://original-app-b4x2.onrender.com](https://original-app-b4x2.onrender.com/)
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| artist_name        | string | null: false |
-| birthday           | date   | null: false |
-| user               | references | null: false, foreign_key: true |
+# テスト用アカウント
 
-### Association
+- Basic認証パスワード：admin
+- Basic認証：3925
+- メールアドレス：test1@ado
+- パスワード：Test0001
 
-- belongs_to :user
-- has_many :arts
+# 利用方法
 
-## arts テーブル
+## 子どもを作者として登録する
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| art_name           | string | null: false |
-| story              | text   |             |
-| workday            | date   | null: false |
-| artist             | references | null: false, foreign_key: true |
-| user               | references | null: false, foreign_key: true |
+1.トップページ（一覧ページ）のヘッダーからユーザー新規登録を行う
 
-### Association
+2.ユーザー名をクリックし、マイページに移動する
 
-- belongs_to :user
-- belongs_to :artist
-- has_many :comments
+3.「作者を追加」ボタンからお子様の情報を入力し登録する
 
-## comments テーブル
+## 子どもの作品を記録・世界に発信する
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| content            | text   | null: false |
-| art                | references | null: false, foreign_key: true |
-| user               | references | null: false, foreign_key: true |
+1.一覧ページ右下の「新規投稿」ボタンをクリックして、投稿フォームを開く
 
-### Association
+2.作品に関する情報を入力し、投稿する
 
-- belongs_to :user
-- belongs_to :art
+## アプリケーションを作成した背景
+
+ママ友に子育ての課題をヒアリングし、「我が子の作った作品を処理しきれていない」という課題を抱えていることが判明した。課題を分析した結果、「子どもの作品を記録しながら発信できる場がない」ということが真因であると仮説を立てた。同様の課題を抱えている人も多いと推測し、真因を解決するために、子どもの作品を共有しユーザー同士のコミュニケーションを促進できるSNSアプリケーションを開発することにした。
+
+## 洗い出した要件
+
+| 機能（大分類） | 機能（小分類） | 要件 |
+| --- | --- | --- |
+| ユーザー管理機能（User) | 新規登録 | ・ユーザーを新しく登録できる |
+|  | ログイン機能 | ・ユーザー登録が完了している場合、ログインすることができる |
+|  |  | ・ログアウトできる |
+| 作者管理機能（Artist) | 登録機能 | ・Userに複数のArtist（子ども）を登録することができる
+・作者ニックネーム・生年月日を登録することができる |
+|  | 一覧機能 | ・登録した子どもを一覧で見ることができる |
+|  | 詳細機能 | ・登録した子どもの作品を一覧で見ることができる |
+| 作品管理機能（Art） | 投稿機能 | ・画像を投稿することができる
+・作品にタイトルをつけることができる
+・作者を選択することができる |
+|  | 一覧機能 | ・作品を一覧で見ることができる |
+|  | 編集機能 | ・自身が投稿した作品は編集することができる |
+|  | 削除機能 | ・自身が投稿した作品は削除することができる |
+|  | 詳細機能 | ・作品の詳細を見ることができる |
+| コメント機能（Comment） | 投稿機能 | ・他のユーザーの作品にコメントすることができる |
+|  | 一覧機能 | ・コメントは作品ごとに一覧で見ることができる |
+
+## 実装した機能についての画像やGIFおよびその説明
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/59ce3f21-ca2c-42c1-b59e-6f20de3b2e35/5533dc89-a2cb-41bf-986f-b6f5bb97b4b8/Untitled.png)
+
+## 実装予定の機能
+
+現在、フォロー機能を実装中。
+
+今後は以下の機能を実装予定
+
+- カテゴリー機能
+- 検索機能
+- メインカラー変更機能
+
+## データベース設計
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/59ce3f21-ca2c-42c1-b59e-6f20de3b2e35/5c91e06c-eb46-4d41-9eac-13042b7f10b6/Untitled.png)
+
+## 画面遷移図
+
+coming soon…
+
+## 開発環境
+
+- フロントエンド
+- バックエンド
+- インフラ
+- テスト
+- テキストエディタ
+- タスク管理
+
+## ローカルでの動作方法
+
+以下のコマンドを順に実行
+
+％ git clone https://github.com/Tanaka925/original_app.git
+
+% cd original_app
+
+% bundle install
+
+% yarn install
+
+## 工夫したポイント
+coming soon…
