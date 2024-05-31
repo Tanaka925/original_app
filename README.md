@@ -58,8 +58,8 @@ KOTEN
 | コメント機能（Comment） | 投稿機能 | ・他のユーザーの作品にコメントすることができる |
 |  | 一覧機能 | ・コメントは作品ごとに一覧で見ることができる |
 
-## 実装した機能についての画像やGIFおよびその説明
-<%= image_tag top_page.jpg', size: '300x200', alt: 'Top_page' %>
+<!-- ## 実装した機能についての画像やGIFおよびその説明
+coming soon… -->
 
 ## 実装予定の機能
 
@@ -71,13 +71,13 @@ KOTEN
 - 検索機能
 - メインカラー変更機能
 
-## データベース設計
+<!-- ## データベース設計
 
-<%= image_tag 'originalapp_er.png', size: '300x200', alt: 'Originalapp_er' %>
+coming soon…
 
 ## 画面遷移図
 
-coming soon…
+coming soon… -->
 
 ## 開発環境
 
@@ -100,5 +100,5 @@ coming soon…
 
 % yarn install
 
-## 工夫したポイント
-coming soon…
+<!-- ## 工夫したポイント
+coming soon… -->
