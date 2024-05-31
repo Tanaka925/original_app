@@ -59,8 +59,7 @@ KOTEN
 |  | 一覧機能 | ・コメントは作品ごとに一覧で見ることができる |
 
 ## 実装した機能についての画像やGIFおよびその説明
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/59ce3f21-ca2c-42c1-b59e-6f20de3b2e35/5533dc89-a2cb-41bf-986f-b6f5bb97b4b8/Untitled.png)
+<%= image_tag top_page.jpg', size: '300x200', alt: 'Top_page' %>
 
 ## 実装予定の機能
 
@@ -74,7 +73,7 @@ KOTEN
 
 ## データベース設計
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/59ce3f21-ca2c-42c1-b59e-6f20de3b2e35/5c91e06c-eb46-4d41-9eac-13042b7f10b6/Untitled.png)
+<%= image_tag 'originalapp_er.png', size: '300x200', alt: 'Originalapp_er' %>
 
 ## 画面遷移図
 
