@@ -58,8 +58,8 @@ KOTEN
 | コメント機能（Comment） | 投稿機能 | ・他のユーザーの作品にコメントすることができる |
 |  | 一覧機能 | ・コメントは作品ごとに一覧で見ることができる |
 
-<!-- ## 実装した機能についての画像やGIFおよびその説明
-coming soon… -->
+## 実装した機能についての画像やGIFおよびその説明
+[![Image from Gyazo](https://i.gyazo.com/7930b96f8c9393b0e8e4ea0af5034a75.jpg)](https://gyazo.com/7930b96f8c9393b0e8e4ea0af5034a75)
 
 ## 実装予定の機能
 
@@ -70,13 +70,13 @@ coming soon… -->
 - 検索機能
 - APIの導入
 
-<!-- ## データベース設計
+## データベース設計
 
-coming soon…
+[![Image from Gyazo](https://i.gyazo.com/65eb0a2164f36768b9a36d414783dd8f.png)](https://gyazo.com/65eb0a2164f36768b9a36d414783dd8f)
 
 ## 画面遷移図
 
-coming soon… -->
+coming soon…
 
 ## 開発環境
 
