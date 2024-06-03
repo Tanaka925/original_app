@@ -72,11 +72,11 @@ KOTEN
 
 ## データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/65eb0a2164f36768b9a36d414783dd8f.png)](https://gyazo.com/65eb0a2164f36768b9a36d414783dd8f)
+[![Image from Gyazo](https://i.gyazo.com/972249077e7075bbfb780c51be7cd12f.png)](https://gyazo.com/972249077e7075bbfb780c51be7cd12f)
 
 ## 画面遷移図
 
-coming soon…
+[![Image from Gyazo](https://i.gyazo.com/f5d695aac688a6c1b1c85e254e453447.png)](https://gyazo.com/f5d695aac688a6c1b1c85e254e453447)
 
 ## 開発環境
 
@@ -99,5 +99,8 @@ coming soon…
 
 % yarn install
 
-<!-- ## 工夫したポイント
-coming soon… -->
+ ## 工夫したポイント
+
+- ユーザーインターフェースのシンプルさと使いやすさを重視しました。
+- 子どもの作品を簡単に投稿できるよう、直感的な操作感を重視しました。
+- ユーザー同士のコミュニケーションを促進するためのコメント機能を実装しました。
