@@ -8,7 +8,7 @@ KOTEN
 
 # URL
 
-[https://original-app-b4x2.onrender.com](https://original-app-b4x2.onrender.com/)
+[https://original-app-vbtn.onrender.com](https://original-app-vbtn.onrender.com)
 
 # テスト用アカウント
 
